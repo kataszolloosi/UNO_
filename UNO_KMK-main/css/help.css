@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'HarryPFont';
+  src: url('HarryPotter.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  /*----------------------------dazugeschrieben--------------*/
+  font-family: 'help';
+  src: url('HarryPotter.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: url(../img/BGStart.png) no-repeat center center fixed;
+  background-size: contain;
+  background-size: cover;
+}
+
+.text {
+  margin-bottom: 250px !important; 
+  margin-right: 350px !important;
+  margin-left: 350px !important;
+}
+
+
+
+nav > div {
+  font-family: 'HarryPFont', sans-serif;
+}
+
+
+
+
+h1,
+.h1 {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: 5rem !important;
+
+}
+
+h2,
+h3,
+h4 {
+  font-family: 'HarryPFont', sans-serif;
+}
+
+h4 {
+  font-size: 1.5rem !important;
+  font-family: 'HarryPFont', sans-serif;
+}
+
+h5 {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: 2.5rem !important;
+}
+
+div {
+ 
+  font-family: 'help', sans-serif;
+  font-size: x-large;
+  
+}
+
+th {
+  font-family: 'help', sans-serif;
+  font-size: x-large;
+}
+
+td {
+  font-family: 'help', sans-serif;
+  font-size: x-large;
+}
+
+.home,
+.help,
+.credits,
+.help_deu,
+#audioButton {
+  margin-top: 2%;
+  margin: 5px;
+  
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  font-size: 22px;
+}
+
+#audioButton {
+  width: 45px;
+  height: 40px;
+}
+
+.custom-margin {
+  margin-bottom: 0;
+}
+
+#audioContainer audio {
+  display: none;
+  /* Versteckt das Audio-Steuerungselement */
+}

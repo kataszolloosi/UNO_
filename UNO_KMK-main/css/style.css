@@ -1,0 +1,418 @@
+/*neue font verwenden*/
+@font-face {
+  font-family: 'HarryPFont';
+  src: url('HarryPotter.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: url(../img/BGStart.png) no-repeat center center fixed;
+  background-size: contain;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: 6rem !important;
+  margin-left: 50px;
+  text-align: center;
+}
+
+h2,
+h3,
+h4 {
+  font-family: 'HarryPFont', sans-serif;
+  text-align: center;
+}
+
+#pl1Name,
+#pl2Name,
+#pl3Name,
+#pl4Name{
+  text-align: left;
+  font-size: 30px;
+  text-align: center;
+}
+
+#score1,
+#score2,
+#score3,
+#score4{
+  text-align: left;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+h4 {
+  font-size: 3.5rem !important;
+}
+
+#openModal1 {
+  padding: 5px 40px;
+  font-size: 22px;
+  font-family: 'HarryPFont', sans-serif;
+  background-color: rgb(64, 56, 56);
+  border: none;
+  border-radius: 5px;
+}
+
+#openModal1:hover,
+.btn.btn-success:hover {
+  background-color: #511313;
+}
+
+.btn.btn-success,
+.btn.btn-success.active,
+.btn.btn-success:focus,
+.btn.btn-success:active {
+  font-family: 'HarryPFont', sans-serif;
+  background-color: rgb(64, 56, 56);
+  border: none;
+  border-radius: 5px;
+}
+
+#player1Name::placeholder,
+#player2Name::placeholder,
+#player3Name::placeholder,
+#player4Name::placeholder {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: x-large;
+}
+
+#homeMessage {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: x-large;
+}
+
+#playerTeamMessage {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: x-large;
+  color: azure;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+nav {
+  font-family: 'HarryPFont', sans-serif;
+}
+
+.modal-background {
+  background-image: url(../img/BGModal.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-control.mb-2 {
+  width: 45%;
+}
+
+.modal-title {
+  color: azure;
+  margin-top: 40px;
+}
+
+.card:hover,
+.discardCard,
+.drawPileCard {
+  transform: scale(1.06);
+  cursor: pointer;
+}
+
+#gameCourt {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  /*overflow-y: auto;
+  max-height: 400px; */
+  /*overflow: visible; /* Remove the max-height constraint */
+}
+
+#cardContainer0,
+#cardContainer1,
+#cardContainer2,
+#cardContainer3 {
+  display: flex;
+  flex-direction: row; /* Standard: Karten werden in einer Reihe angezeigt */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  max-width: 50px;
+  margin-bottom: 5px;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.discardCard,
+#discardCardDiv {
+  position: absolute;
+  top: 50%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 75px;
+}
+
+.drawPileCard,
+#drawPileDiv {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 85px;
+  border-radius: 0.25rem;
+}
+
+.modal-content {
+  border-radius: 10px;
+  /* Runde Ecken */
+}
+
+.home,
+.help,
+.credits,
+#audioButton {
+  margin-top: 2%;
+  margin: 5px;
+  border-radius: 10px;
+  width: 75px;
+  height: 40px;
+  font-size: 22px;
+}
+
+#audioButton {
+  width: 45px;
+  height: 40px;
+}
+
+.custom-margin {
+  margin-bottom: 0;
+}
+
+#audioContainer audio {
+  display: none;
+  /* Versteckt das Audio-Steuerungselement */
+}
+
+.container1 {
+  background: rgba(20, 19, 19, 0.844);
+  font-family: 'HarryPFont', sans-serif;
+  padding: 15px;
+}
+
+#fliegendesBild {
+  position: fixed;
+  width: 100px; /* Größe anpassen */
+  top: 0; /* Startposition oben */
+  right: 0; /* Startposition rechts */
+  transform: translate(0, 0); /* Startposition */
+  animation: fliege 6s linear infinite; /* Animation definieren */
+}
+
+@keyframes fliege {
+  from {
+    top: 0; /* Startposition oben */
+    right: 0; /* Startposition rechts */
+  }
+  to {
+    top: 100%; /* Endposition unten */
+    right: 100%; /* Endposition rechts */
+    transform: translate(-100%, -100%); /* Endposition links oben */
+  }
+}
+
+
+#directionContainer {
+  position: absolute;
+    top: 52%; 
+    left: 32%;
+    transform: translate(-50%, -50%);
+    animation: rotateClockwise 5s linear infinite;
+}
+@keyframes rotateClockwise {
+  0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotateCounterclockwise {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+
+/*Color Picker */
+.modalColorPicker {
+  background-image: url(../img/CCmodalBG.png);
+  background-position: center;
+  display: none;
+  position: fixed;
+  top: 50%; /* Vertically center the modal */
+  left: 50%; /* Horizontally center the modal */
+  transform: translate(-50%, -50%); /* Center the modal precisely */
+  width: 450px; /* Adjust the width as needed */
+  border-radius: 10px;
+}
+
+.color-image {
+  width: 150px;
+  height: auto;
+  cursor: pointer;
+}
+
+.color-buttons{
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  margin: 15px;
+}
+
+/*-----------Ende: ColorPickerModal */
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.wrongCard {
+  animation: shake 0.5s;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.bigcard {
+  transform: scale(1.8) !important;
+}
+
+
+.goodCall {
+  animation: spin 2s linear infinite; /* Adjust duration, timing, and iteration count as needed */
+  transform-origin: center; /* Sets the center of the element as the rotation point */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); /* Change the degree to control the number of spins */
+  }
+}
+
+
+/*SCOREBOARD-----------------------------*/
+table {
+  align-self: center;
+  background-color: rgba(3, 2, 2, 0.78);
+  color: white; 
+  border-collapse: collapse; 
+  width: 80%; 
+  height: 50%;
+  margin: 0 auto; 
+}
+
+tr, td {
+  font-family: sans-serif;
+  font-size: 12px;
+  border: 1px solid white; 
+  padding-right: 5px;
+  padding-left: 5px; 
+  text-align: center; 
+}
+
+th {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: large;
+  font-weight: 250; /* oder font-weight: 400; */
+  border: 1px solid white; 
+  padding-right: 5px;
+  padding-left: 5px; 
+  text-align: center; 
+}
+
+/* winner modal----------------------------*/
+
+.announceWinner {
+  background-image: url(../img/CCmodalBG.png);
+  background-size: cover;
+  display: none;
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); /* Center the modal precisely */
+  width: 450px;
+  height: 520px;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  #anotherRound,
+  #endGame {
+    margin-top: 15px;
+    margin-left: 100px;
+    background-color: black;
+    width: 15%;
+    height: auto;
+    font-size: 22px;
+  }
+
+  #greetWinner {
+    margin-top: 5%;
+  }
+
+  
+ 
+  #unoButtonContainer {
+      position: absolute;
+      left: 42%;
+      margin: 5px 5px 0px 0px;
+  }
+  
+
+  #unoButtonContainer img:hover{
+  transform: scale(1.06);
+  cursor: pointer;
+  }
+
+  .byeDiv h1 {
+  font-family: 'HarryPFont', sans-serif;
+  font-size: 7rem !important;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  }

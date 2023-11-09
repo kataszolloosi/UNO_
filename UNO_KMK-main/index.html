@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wizarding World</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+
+
+<body>
+  <div id="audioContainer">
+    <audio id="myAudio" controls loop>
+      <source src="css/introSong.mp3" type="audio/mpeg">
+      Dein Browser unterstützt das Audio-Element nicht.
+    </audio>
+  </div>
+  <img src="img/Flugbesen.png" id="fliegendesBild" alt="Fliegendes Bild">
+
+  <nav>
+    <div></div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button id="audioButton" onclick="playAudioLoop()"><i id="audioIcon" class="fas fa-volume-off"></i></button>
+      <button onclick="window.location.href='index.html'" type="button" class="home">Home</button>
+      <button class="help" id="testButton" onclick="window.location.href='help.html'">Help</button>
+      <button class="credits" id="testButton" onclick="window.location.href='credits.html'">Credits</button>
+    </div>
+  </nav>
+
+  <br>
+  <div id="greet">
+    <h1 id="gameMessage">Welcome to the Wizarding World!</h1>
+  </div>
+  <div class="containermt-5" id="homeMessage">
+    <h4>"Wizards, witches, and muggles alike, <br>
+      Come and join the fairest of all fights!<br>
+      A game without magic, it's pure and quick,<br>
+      Your wit and humor will do the trick!"</h4>
+    <div class="container mt-5 text-center" id="collectNames">
+      <button class="btn btn-primary" id="openModal1" data-target="nameModal">
+        Join the Hogwart's Uno Cup!
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="nameModal">
+    <div class="modal-dialog">
+      <div class="modal-background" style="border-radius: 15px;">
+        <div class="modal-content" style="background-color: transparent;">
+          <!-- Modal Header -->
+          <div class="modal-header" style="border: none; text-align: center;">
+            <h4 class="modal-title">Enter Player Names</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div id="playerTeamMessage"></div>
+            <div id="formSection">
+              <form id="nameForm">
+                <div class="form-group">
+                  <input type="text" id="player1Name" class="form-control mb-2" placeholder="Player 1" value="Kata"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="player2Name" class="form-control mb-2" placeholder="Player 2"  value="Myla"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="player3Name" class="form-control mb-2" placeholder="Player 3" value="Ksenija"/>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="player4Name" class="form-control mb-2" placeholder="Player 4" value="Nora" />
+                </div>
+                <button type="submit" class="btn btn-success" id="startGameButton">START GAME</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer" style="border: none;">
+            <button id="okButton" style="display: none;" class="btn btn-success">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="playground">
+    <!-- erste zeile -->
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 player-card" id="player1Place">
+        <h3 id="pl1Name" class="custom-margin"></h3>
+        <div id="score1"></div>
+        <!-- Hier werden die Karten von Spieler 1 angezeigt -->
+      </div>
+      <div class="col-4">
+        <div id="directionContainer"></div>
+      </div>
+
+    </div>
+
+    <!-- zweite zeile -->
+    <div class="row mt-3">
+      <div class="col-4 player-card" id="player4Place">
+        <h3 id="pl4Name" class="custom-margin"></h3>
+        <div id="score4"></div>
+        <!-- Hier werden die Karten von Spieler 4 angezeigt -->
+      </div>
+      <div class="col-4" id="gameCourt">
+        <div id = "unoButtonContainer"></div>
+      </div>
+      <div class="col-4 player-card" id="player2Place">
+        <h3 id="pl2Name" class="custom-margin"></h3>
+        <div id="score2"></div>
+        
+        <!-- Hier werden die Karten von Spieler 2 angezeigt -->
+      </div>
+    </div>
+    <!-- dritte zeile -->
+    <div class="row mt-3">
+      <div class="col-4"></div>
+      <div class="col-4 player-card" id="player3Place">
+        <h3 id="pl3Name" class="custom-margin"></h3>
+        <div id="score3"></div>
+        <!-- Hier werden die Karten von Spieler 3 angezeigt -->
+      </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
+
+  <!-- Color Modal -->
+  <div id="colorModal" class="modalColorPicker">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background-color: transparent;">
+        <!-- Modal Header -->
+        <div id="modalHeader" class="modal-header2" style="border: none; text-align: center;">
+          <h2 class="modal-title2">Pick a Color!</h2>
+        </div>
+        <!-- Modal body -->
+        <div class="modalColorPicker-content">
+          <div id="row-color-1" class="row color-row">
+            <div class="col-6">
+              <button type="submit" id="Red" class="color-buttons">
+                <img src="./img/Red.png" data-color="Red" alt="Red" class="color-image">
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="submit" id="Blue" class="color-buttons">
+                <img src="./img/Blue.png" data-color="Blue" alt="Blue" class="color-image"> </button>
+            </div>
+          </div>
+          <div id="row-color-2" class="row color-row">
+            <div class="col-6">
+              <button type="submit" id="Green" class="color-buttons">
+                <img src="./img/Green.png" data-color="Green" alt="Green" class="color-image">
+              </button>
+            </div>
+            <div class="col-6">
+              <button type="submit" id="Yellow" class="color-buttons">
+                <img src="./img/Yellow.png" data-color="Yellow" alt="Yellow" class="color-image">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Winner Modal -->
+  <div class="announceWinner" id="winnerModal">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: transparent;">
+          <!-- Modal Header -->
+          <div class="modal-header2" style="border: none; text-align: center;">
+            <h2 class="modal-title2">Congratulations</h2>
+            <div id="winnerName"></div>
+            <div id="message2winner">
+              <h2 id="housePoints">You've brought points to your house!</h2>
+            </div>
+            <button type="button" class="close" data-dismiss="modal">
+            </button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div id="scoreBoard"></div>
+          </div>
+
+          <!-- Modal footer -->
+          <div id="winnerChoice">
+            <button id="anotherRound" class="btn btn-success">Play</button>
+            <button id="endGame" class="btn btn-success">End</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
